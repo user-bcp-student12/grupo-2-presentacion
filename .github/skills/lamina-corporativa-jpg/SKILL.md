@@ -12,11 +12,11 @@ Entrada: un texto con el detalle de lo que debe mostrar la imagen (título, punt
 ## Flujo
 
 1. Leer el prompt y decidir qué representación comunica mejor el contenido (portada/cierre, lista + cifras, arquitectura en capas, cuadrícula de componentes o SVG libre). Si el texto no cabe con holgura, condensarlo o preguntar si se divide en varias imágenes; no reducir la fuente.
-2. Copiar la plantilla más cercana de [templates/](./templates) a `presentacion/fuente/<nombre>.html` (nombre descriptivo, p. ej. `arquitectura-general.html`) y ajustar el `href` del CSS a la ruta relativa real, p. ej. `../../.github/skills/lamina-corporativa-jpg/assets/slide.css`.
+2. Cada lámina vive en su propia carpeta `presentacion/lamina-NN/` (NN con dos dígitos: `lamina-01`, `lamina-02`, …). Si el usuario pide "lamina-03", usar ese número; si no lo indica, usar el siguiente libre. Copiar la plantilla más cercana de [templates/](./templates) a `presentacion/lamina-NN/lamina-NN.html` y mantener el `href` del CSS como `../../.github/skills/lamina-corporativa-jpg/assets/slide.css`.
 3. Reemplazar el contenido usando **solo** las clases de [assets/slide.css](./assets/slide.css). No inventar estilos, colores ni fuentes.
 4. Renderizar:
    ```powershell
-   python .github\skills\lamina-corporativa-jpg\scripts\render.py presentacion\fuente\<nombre>.html presentacion\<nombre>.jpg
+   python .github\skills\lamina-corporativa-jpg\scripts\render.py presentacion\lamina-NN\lamina-NN.html presentacion\lamina-NN\lamina-NN.jpg
    ```
 5. Abrir el JPG y verificar: sin texto cortado/desbordado, sin solapes, alineaciones limpias. Corregir y re-renderizar si hace falta.
 
@@ -24,7 +24,7 @@ Requiere Python + Pillow y Microsoft Edge o Chrome instalados. El script garanti
 
 ## Correcciones
 
-Nunca editar el JPG. Para corregir una imagen ya generada: modificar su HTML en `presentacion/fuente/<nombre>.html` (texto, nodos, orden) y volver a ejecutar el mismo comando de render, que sobrescribe el JPG. Después de corregir, abrir y revisar el resultado. Un cambio de estilo global se hace en `assets/slide.css` y exige re-renderizar las imágenes existentes para que sigan siendo uniformes.
+Nunca editar el JPG. Para corregir una imagen ya generada: modificar su HTML en `presentacion/lamina-NN/lamina-NN.html` (texto, nodos, orden) y volver a ejecutar el mismo comando de render, que sobrescribe el JPG. Después de corregir, abrir y revisar el resultado. Un cambio de estilo global se hace en `assets/slide.css` y exige re-renderizar las imágenes existentes para que sigan siendo uniformes.
 
 ## Plantillas
 
