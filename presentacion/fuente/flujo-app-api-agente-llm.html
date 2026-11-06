@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Flujo app móvil - API - agente - LLM</title>
+<link rel="stylesheet" href="../../.github/skills/lamina-corporativa-jpg/assets/slide.css">
+</head>
+<body>
+<section class="slide">
+  <header class="slide-header">
+    <div class="eyebrow">Flujo de la solución</div>
+    <h1 class="slide-title">App móvil, API, microservicio Python y agente con LLM</h1>
+  </header>
+
+  <div class="slide-body">
+    <div class="flow" style="grid-template-columns: 1fr 120px 1fr 120px 1fr 120px 1fr 120px 1fr; grid-template-rows: 210px 72px 150px;">
+      <div class="node external">
+        <div class="node-name">App móvil</div>
+        <div class="node-desc">iOS / Android</div>
+      </div>
+      <div class="flow-link"><div class="flow-label">1 · HTTPS</div><div class="flow-line both"></div></div>
+      <div class="node primary">
+        <div class="node-name">API</div>
+        <div class="node-desc">Autenticación y validación</div>
+      </div>
+      <div class="flow-link"><div class="flow-label">2 · REST</div><div class="flow-line both"></div></div>
+      <div class="node accent">
+        <div class="node-name">Microservicio Python</div>
+        <div class="node-desc">Lógica de negocio</div>
+      </div>
+      <div class="flow-link"><div class="flow-label">3 · Tarea</div><div class="flow-line both"></div></div>
+      <div class="node accent">
+        <div class="node-name">Agente</div>
+        <div class="node-desc">Razonamiento y orquestación</div>
+      </div>
+      <div class="flow-link"><div class="flow-label">4 · Prompt</div><div class="flow-line both"></div></div>
+      <div class="node alt">
+        <div class="node-name">LLM</div>
+        <div class="node-desc">Generación de lenguaje</div>
+      </div>
+
+      <div class="flow-vline both" style="grid-column: 7; grid-row: 2; height: 56px;"></div>
+
+      <div class="node" style="grid-column: 7; grid-row: 3;">
+        <div class="node-name">Herramientas</div>
+        <div class="node-desc">Servicios, datos y búsqueda</div>
+      </div>
+    </div>
+
+    <div class="grid-4" style="margin-top: auto; grid-template-columns: repeat(5, 1fr);">
+      <div class="step"><div class="step-num">01</div><div class="step-title">Solicitud</div><div class="step-text">La app envía la consulta del usuario al API con su sesión.</div></div>
+      <div class="step"><div class="step-num">02</div><div class="step-title">Validación</div><div class="step-text">El API autentica y reenvía la solicitud al microservicio.</div></div>
+      <div class="step"><div class="step-num">03</div><div class="step-title">Delegación</div><div class="step-text">El microservicio prepara la tarea y la entrega al agente.</div></div>
+      <div class="step"><div class="step-num">04</div><div class="step-title">Razonamiento</div><div class="step-text">El agente consulta al LLM y usa herramientas si las necesita.</div></div>
+      <div class="step"><div class="step-num">05</div><div class="step-title">Respuesta</div><div class="step-text">El resultado vuelve por el mismo camino hasta la app.</div></div>
+    </div>
+  </div>
+  <div class="slide-footer"><span>Flujo de la solución</span><span></span></div>
+</section>
+</body>
+</html>

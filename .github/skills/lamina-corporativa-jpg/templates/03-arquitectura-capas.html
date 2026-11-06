@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Arquitectura en capas</title>
+<link rel="stylesheet" href="../assets/slide.css">
+</head>
+<body>
+<section class="slide">
+  <header class="slide-header">
+    <div class="eyebrow">Arquitectura</div>
+    <h1 class="slide-title">Arquitectura general de la solución</h1>
+  </header>
+
+  <div class="slide-body" style="gap:0;">
+    <div class="layer">
+      <div class="layer-label">Clientes</div>
+      <div class="layer-nodes">
+        <div class="node external"><div class="node-name">Web</div><div class="node-desc">Aplicación SPA</div></div>
+        <div class="node external"><div class="node-name">Móvil</div><div class="node-desc">iOS / Android</div></div>
+        <div class="node external"><div class="node-name">Sistemas externos</div><div class="node-desc">Integraciones</div></div>
+      </div>
+    </div>
+    <div class="arrow-down" style="margin:6px 0;"></div>
+
+    <div class="layer">
+      <div class="layer-label">Acceso</div>
+      <div class="layer-nodes">
+        <div class="node primary"><div class="node-name">API Gateway</div><div class="node-desc">Enrutamiento y seguridad</div></div>
+      </div>
+    </div>
+    <div class="arrow-down" style="margin:6px 0;"></div>
+
+    <div class="layer">
+      <div class="layer-label">Servicios</div>
+      <div class="layer-nodes">
+        <div class="node accent"><div class="node-name">Servicio A</div><div class="node-desc">Responsabilidad</div></div>
+        <div class="node accent"><div class="node-name">Servicio B</div><div class="node-desc">Responsabilidad</div></div>
+        <div class="node accent"><div class="node-name">Servicio C</div><div class="node-desc">Responsabilidad</div></div>
+        <div class="node alt"><div class="node-name">Mensajería</div><div class="node-desc">Eventos asíncronos</div></div>
+      </div>
+    </div>
+    <div class="arrow-down" style="margin:6px 0;"></div>
+
+    <div class="layer">
+      <div class="layer-label">Datos</div>
+      <div class="layer-nodes">
+        <div class="node"><div class="node-name">Base relacional</div><div class="node-desc">Transaccional</div></div>
+        <div class="node"><div class="node-name">Caché</div><div class="node-desc">Baja latencia</div></div>
+        <div class="node"><div class="node-name">Almacenamiento</div><div class="node-desc">Objetos y archivos</div></div>
+      </div>
+    </div>
+
+    <div class="legend" style="margin-top:20px;">
+      <span><i class="l-ext"></i>Externo</span>
+      <span><i class="l-primary"></i>Entrada</span>
+      <span><i class="l-accent"></i>Servicio</span>
+      <span><i class="l-alt"></i>Mensajería</span>
+      <span><i></i>Datos</span>
+    </div>
+  </div>
+
+  <div class="slide-footer"><span>Nombre del producto</span><span></span></div>
+</section>
+</body>
+</html>

@@ -1,0 +1,207 @@
+/* Sistema de diseño — lámina corporativa 1920x1080 (16:9)
+   Base de espaciado: 8px. No introducir colores, fuentes ni radios fuera de estos tokens. */
+
+:root {
+  /* Color */
+  --navy-900: #0B1F3A;   /* fondo portada/cierre, títulos */
+  --navy-700: #14325C;   /* encabezados de capa, énfasis */
+  --blue-600: #1F5FBF;   /* acento principal (único acento fuerte) */
+  --blue-100: #E6EEF9;   /* relleno suave de acento */
+  --teal-600: #0F8B8D;   /* acento secundario (usar con moderación) */
+  --teal-100: #E3F3F3;
+  --ink-900:  #1B2733;   /* texto principal */
+  --ink-600:  #5A6877;   /* texto secundario */
+  --line:     #D3DBE5;   /* bordes y conectores */
+  --surface:  #F4F6F9;   /* fondo de paneles */
+  --white:    #FFFFFF;   /* fondo de lámina */
+
+  /* Tipografía */
+  --font: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+
+  /* Espaciado */
+  --margin-x: 96px;
+  --margin-top: 72px;
+  --gap: 32px;
+  --radius: 8px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body { width: 1920px; height: 1080px; overflow: hidden; background: var(--white); }
+
+body {
+  font-family: var(--font);
+  color: var(--ink-900);
+  font-size: 28px;
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- Lámina ---------- */
+.slide {
+  position: relative;
+  width: 1920px;
+  height: 1080px;
+  background: var(--white);
+  padding: var(--margin-top) var(--margin-x) 128px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Cabecera de contenido */
+.slide-header { margin-bottom: 40px; }
+.eyebrow {
+  font-size: 22px; font-weight: 600; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--blue-600); margin-bottom: 12px;
+}
+.slide-title { font-size: 56px; font-weight: 600; line-height: 1.15; color: var(--navy-900); }
+.slide-subtitle { font-size: 28px; color: var(--ink-600); margin-top: 12px; max-width: 1400px; }
+.slide-header::after {
+  content: ""; display: block; width: 96px; height: 4px;
+  background: var(--blue-600); margin-top: 28px;
+}
+
+.slide-body { flex: 1; min-height: 0; display: flex; flex-direction: column; gap: var(--gap); }
+
+/* Pie */
+.slide-footer {
+  position: absolute; left: var(--margin-x); right: var(--margin-x); bottom: 40px;
+  display: flex; justify-content: space-between; align-items: center;
+  padding-top: 16px; border-top: 1px solid var(--line);
+  font-size: 20px; color: var(--ink-600);
+}
+.slide-footer .page { font-weight: 600; color: var(--navy-700); }
+
+/* ---------- Portada / cierre (fondo oscuro) ---------- */
+.slide.dark { background: var(--navy-900); color: var(--white); justify-content: center; padding-left: 160px; padding-right: 160px; }
+.slide.dark::before {
+  content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 24px; background: var(--blue-600);
+}
+.slide.dark .eyebrow { color: #8DB4F0; }
+.slide.dark .cover-title { font-size: 96px; font-weight: 600; line-height: 1.08; max-width: 1400px; }
+.slide.dark .cover-subtitle { font-size: 36px; font-weight: 300; color: #C9D6E8; margin-top: 32px; max-width: 1200px; }
+.slide.dark .cover-rule { width: 120px; height: 4px; background: var(--blue-600); margin: 48px 0; }
+.slide.dark .cover-meta { font-size: 24px; color: #9FB2CB; }
+.slide.dark .slide-footer { border-top-color: rgba(255,255,255,0.18); color: #9FB2CB; left: 160px; right: 160px; }
+.slide.dark .slide-footer .page { color: var(--white); }
+
+/* ---------- Layouts ---------- */
+.row { display: flex; gap: var(--gap); }
+.col { display: flex; flex-direction: column; gap: var(--gap); }
+.grow { flex: 1; min-width: 0; min-height: 0; }
+.grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--gap); }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap); }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--gap); }
+
+/* ---------- Tarjeta / componente ---------- */
+.card {
+  background: var(--white); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 28px 32px; display: flex; flex-direction: column; gap: 12px;
+  border-top: 4px solid var(--blue-600);
+}
+.card.alt { border-top-color: var(--teal-600); }
+.card.plain { border-top: 1px solid var(--line); }
+.card-tag { font-size: 20px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--blue-600); }
+.card.alt .card-tag { color: var(--teal-600); }
+.card-title { font-size: 32px; font-weight: 600; color: var(--navy-900); line-height: 1.2; }
+.card-text { font-size: 24px; color: var(--ink-600); line-height: 1.45; }
+
+/* Panel de fondo suave */
+.panel { background: var(--surface); border-radius: var(--radius); padding: 32px; }
+
+/* Listas */
+.list { list-style: none; display: flex; flex-direction: column; gap: 20px; }
+.list li { position: relative; padding-left: 32px; font-size: 30px; line-height: 1.35; }
+.list li::before {
+  content: ""; position: absolute; left: 0; top: 0.5em; width: 12px; height: 12px;
+  background: var(--blue-600); border-radius: 2px;
+}
+.list li small { display: block; font-size: 24px; color: var(--ink-600); margin-top: 4px; }
+
+/* ---------- Diagramas de arquitectura ---------- */
+/* Capa horizontal: etiqueta a la izquierda + fila de nodos */
+.layer {
+  display: flex; align-items: stretch; gap: 24px;
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 20px 24px;
+}
+.layer-label {
+  flex: 0 0 240px; display: flex; align-items: center;
+  font-size: 22px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--navy-700);
+  border-right: 3px solid var(--blue-600); padding-right: 16px;
+}
+.layer-nodes { flex: 1; display: flex; gap: 20px; }
+
+/* Nodo (componente) */
+.node {
+  flex: 1; min-width: 0; background: var(--white); border: 1.5px solid var(--navy-700);
+  border-radius: var(--radius); padding: 16px 20px;
+  display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; gap: 4px;
+}
+.node-name { font-size: 26px; font-weight: 600; color: var(--navy-900); line-height: 1.2; }
+.node-desc { font-size: 20px; color: var(--ink-600); line-height: 1.3; }
+.node.primary { background: var(--navy-700); border-color: var(--navy-700); }
+.node.primary .node-name { color: var(--white); }
+.node.primary .node-desc { color: #C9D6E8; }
+.node.accent { background: var(--blue-100); border-color: var(--blue-600); }
+.node.alt { background: var(--teal-100); border-color: var(--teal-600); }
+.node.external { background: var(--white); border: 1.5px dashed var(--ink-600); }
+
+/* Conectores */
+.arrow-down { align-self: center; width: 2px; height: 28px; background: var(--ink-600); position: relative; flex: none; }
+.arrow-down::after {
+  content: ""; position: absolute; bottom: -2px; left: -6px;
+  border-left: 7px solid transparent; border-right: 7px solid transparent; border-top: 10px solid var(--ink-600);
+}
+.arrow-right { align-self: center; flex: 0 0 40px; height: 2px; background: var(--ink-600); position: relative; }
+.arrow-right::after {
+  content: ""; position: absolute; right: -2px; top: -6px;
+  border-top: 7px solid transparent; border-bottom: 7px solid transparent; border-left: 10px solid var(--ink-600);
+}
+
+/* Flujo en cuadrícula: nodos y conectores en columnas (usar grid-template-columns propio) */
+.flow { display: grid; align-items: center; column-gap: 0; row-gap: 0; }
+.flow .node { height: 100%; min-height: 150px; padding: 20px 24px; }
+.flow-link { display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 0 8px; }
+.flow-label { font-size: 20px; font-weight: 600; color: var(--navy-700); text-align: center; line-height: 1.2; }
+.flow-line { position: relative; width: 100%; height: 2px; background: var(--ink-600); }
+.flow-line::after {
+  content: ""; position: absolute; right: -2px; top: -6px;
+  border-top: 7px solid transparent; border-bottom: 7px solid transparent; border-left: 10px solid var(--ink-600);
+}
+.flow-line.both::before {
+  content: ""; position: absolute; left: -2px; top: -6px;
+  border-top: 7px solid transparent; border-bottom: 7px solid transparent; border-right: 10px solid var(--ink-600);
+}
+.flow-vline { position: relative; width: 2px; height: 48px; background: var(--ink-600); justify-self: center; }
+.flow-vline::after {
+  content: ""; position: absolute; bottom: -2px; left: -6px;
+  border-left: 7px solid transparent; border-right: 7px solid transparent; border-top: 10px solid var(--ink-600);
+}
+.flow-vline.both::before {
+  content: ""; position: absolute; top: -2px; left: -6px;
+  border-left: 7px solid transparent; border-right: 7px solid transparent; border-bottom: 10px solid var(--ink-600);
+}
+
+/* Paso numerado */
+.step { display: flex; flex-direction: column; gap: 8px; border-top: 2px solid var(--line); padding-top: 16px; }
+.step-num { font-size: 22px; font-weight: 600; color: var(--blue-600); letter-spacing: 0.08em; }
+.step-title { font-size: 26px; font-weight: 600; color: var(--navy-900); line-height: 1.2; }
+.step-text { font-size: 22px; color: var(--ink-600); line-height: 1.4; }
+
+/* Contenedor SVG para diagramas libres (usar viewBox y los mismos tokens) */
+.diagram { width: 100%; height: 100%; }
+.diagram text { font-family: var(--font); fill: var(--ink-900); }
+
+/* Leyenda */
+.legend { display: flex; gap: 32px; font-size: 20px; color: var(--ink-600); align-items: center; }
+.legend i { display: inline-block; width: 20px; height: 20px; border-radius: 4px; margin-right: 10px; vertical-align: -4px; border: 1.5px solid var(--navy-700); }
+.legend i.l-primary { background: var(--navy-700); }
+.legend i.l-accent { background: var(--blue-100); border-color: var(--blue-600); }
+.legend i.l-alt { background: var(--teal-100); border-color: var(--teal-600); }
+.legend i.l-ext { background: var(--white); border: 1.5px dashed var(--ink-600); }
+
+/* Cifras destacadas */
+.kpi-value { font-size: 64px; font-weight: 300; color: var(--blue-600); line-height: 1; }
+.kpi-label { font-size: 22px; color: var(--ink-600); margin-top: 8px; }
